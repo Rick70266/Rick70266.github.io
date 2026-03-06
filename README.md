@@ -1,0 +1,1 @@
+# Rick70266.github.io
