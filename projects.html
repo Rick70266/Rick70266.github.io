@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專題製作展示 | 數據分析與工程</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-light: #f4f7f6;
+        }
+        body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; line-height: 1.6; background: var(--bg-light); color: #333; margin: 0; }
+        .nav-back { padding: 1rem 2rem; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .project-card { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .tag { background: #e0e0e0; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; }
+        h1 { color: var(--primary-color); }
+        h2 { color: var(--accent-color); border-left: 5px solid var(--accent-color); padding-left: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="nav-back">
+    <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: bold;">&larr; 返回主頁</a>
+</div>
+
+<div class="container">
+    <h1>專題製作展示</h1>
+    <p>這裡記錄了我結合 SQL、Power BI 與 Python 的實戰案例。</p>
+
+    <div class="project-card">
+        <h2>零售業銷售數據分析系統</h2>
+        <div>
+            <span class="tag">SQL Server</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+        </div>
+        <p><strong>專案描述：</strong> 針對連鎖店鋪的交易資料進行 ETL 清理，並建立星狀架構（Star Schema）資料模型。</p>
+        <ul>
+            <li>使用 <strong>SQL Server</strong> 進行資料彙整與視圖（View）建立。</li>
+            <li>在 <strong>Power BI</strong> 中撰寫 DAX 度量值計算 YoY（年增率）與 MoM（月增率）。</li>
+            <li>透過視覺化發現特定產品線在特定季節的毛利異常，協助減少 15% 的庫存堆積。</li>
+        </ul>
+    </div>
+
+    <div class="project-card">
+        <h2>自動化房價爬蟲與預測分析</h2>
+        <div>
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Selenium</span>
+        </div>
+        <p><strong>專案描述：</strong> 開發 Python 腳本自動抓取房地產網站數據，並進行初步預測。</p>
+        <ul>
+            <li>使用 <strong>Selenium/BeautifulSoup</strong> 定時抓取最新成交行情。</li>
+            <li>透過 <strong>Pandas</strong> 清洗異常值與缺失值。</li>
+            <li>產出自動化 Excel 報表供決策參考。</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p style="text-align: center; color: #888; padding: 2rem;">&copy; 2026 數據專家專案集</p>
+</footer>
+
+</body>
+</html>
