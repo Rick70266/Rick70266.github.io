@@ -10,6 +10,7 @@
             --accent-color: #3498db;
             --bg-light: #f4f7f6;
             --text-dark: #333;
+            --white: #ffffff;
         }
 
         body {
@@ -34,18 +35,20 @@
         }
 
         section {
-            background: white;
-            padding: 2rem;
+            background: var(--white);
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         h1, h2 {
             color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
         }
 
-        h1 { margin-bottom: 0.5rem; }
+        h1 { border-bottom: none; margin-bottom: 0.5rem; }
         
         .subtitle {
             font-size: 1.2rem;
@@ -53,46 +56,83 @@
             font-weight: 300;
         }
 
+        /* 技能區塊 */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .skill-item {
             background: #fff;
-            border-left: 5px solid var(--accent-color);
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-color);
+            padding: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
 
         .skill-item h3 {
             margin-top: 0;
             font-size: 1.1rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
+        /* 學歷時間軸樣式 */
+        .edu-list {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+
+        .edu-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+            position: relative;
+        }
+
+        .edu-item::before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .edu-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .edu-major {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* 求職需求 */
         .job-needs {
-            background: #eef2f3;
-            border: 1px dashed var(--accent-color);
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             font-size: 0.9rem;
-            color: #777;
+            color: #888;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 5px;
+        ul.job-list {
+            padding-left: 1.2rem;
+        }
+
+        ul.job-list li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -100,7 +140,7 @@
 
 <header>
     <h1>數據分析與資料工程專家</h1>
-    <p class="subtitle">轉化碎片化數據為企業決策洞見</p>
+    <p class="subtitle">整合工業管理邏輯與 SQL / Python 數據技術</p>
 </header>
 
 <div class="container">
@@ -108,11 +148,8 @@
     <section id="about">
         <h2>關於我 (About Me)</h2>
         <p>
-            您好！我是一名深耕於<strong>數據工程與商業智慧（BI）</strong>領域的專業人士。
-            我擅長建構穩健的資料底層架構，並透過數據建模與視覺化技術，將複雜的原始資料轉化為直觀、具備行動建議的決策儀表板。
-        </p>
-        <p>
-            我的核心價值在於連結「技術端」與「業務端」，不僅解決數據清理與 ETL 的工程難題，更能利用進階 DAX 運算挖掘數據背後的增長機會。
+            您好！我是一名具備<strong>工業管理</strong>背景的數據專家，擅長將流程優化邏輯應用於<strong>數據工程與商業智慧（BI）</strong>領域。
+            我的核心價值在於建構自動化的數據流，並利用進階 DAX 運算與視覺化工具，協助企業從數據中找出營運效率的突破點。
         </p>
     </section>
 
@@ -120,41 +157,59 @@
         <h2>核心技術能力</h2>
         <div class="skill-grid">
             <div class="skill-item">
-                <h3>SQL Server 架構</h3>
-                <p>精通 T-SQL 編寫、預存程序優化及資料庫架構設計，確保數據讀取的高效與準確性。</p>
+                <h3>SQL Server 技術</h3>
+                <p>精通 T-SQL 編寫、資料庫架構設計及效能優化，處理大規模數據集架構。</p>
             </div>
             <div class="skill-item">
-                <h3>Power BI 視覺化</h3>
-                <p>擅長設計符合使用者習慣的商業報告，透過互動式介面提升跨部門數據溝通效率。</p>
+                <h3>Power BI 報表製作</h3>
+                <p>整合多方資料來源，建立動態且具備商業洞察力的互動式儀表板。</p>
             </div>
             <div class="skill-item">
-                <h3>DAX 進階建模</h3>
-                <p>運用 DAX 撰寫複雜的時間序列分析、動態度量值，精準定義 KPI 指標。</p>
+                <h3>Power BI DAX 分析</h3>
+                <p>擅長進階 DAX 函數，進行複雜的時間序列比較與關鍵績效指標（KPI）定義。</p>
             </div>
             <div class="skill-item">
-                <h3>Python 自動化</h3>
-                <p>利用 Python 進行資料抓取、前處理及統計分析，打造自動化數據流與模型部署。</p>
+                <h3>Python 數據開發</h3>
+                <p>利用 Python 進行資料清洗、自動化爬蟲及數據處理流程優化。</p>
             </div>
         </div>
     </section>
 
-    
+    <section id="education">
+        <h2>學歷背景 (Education)</h2>
+        <div class="edu-list">
+            <div class="edu-item">
+                <span class="edu-name">國立虎尾科技大學</span>
+                <span class="edu-major">工業管理系</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-name">國立台中高級工業職業學校</span>
+                <span class="edu-major">圖文傳播科</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-name">台中市立五權國中</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-name">台中市立健行國小</span>
+            </div>
+        </div>
+    </section>
 
     <section id="aspiration" class="job-needs">
         <h2>求職需求與期待</h2>
-        <p>目前正尋求<strong>資深數據分析師 (Senior Data Analyst)</strong>、<strong>資料工程師 (Data Engineer)</strong> 或 <strong>BI 顧問</strong> 等相關職位。我期待加入一個重視數據驅動決策、並能讓我發揮以下價值的環境：</p>
-        <ul>
-            <li><strong>優化數據基礎建設：</strong>從 SQL 伺服器優化到自動化管道建立，降低數據獲取成本。</li>
-            <li><strong>深化分析維度：</strong>利用 DAX 與 Python 建立預測模型，超越基礎報表，進入進階分析範疇。</li>
-            <li><strong>跨部門溝通：</strong>作為技術與業務的橋樑，將營運痛點轉化為技術規格。</li>
+        <p>目前尋求<strong>資深數據分析師</strong>、<strong>資料工程師</strong>或 <strong>BI 顧問</strong> 等相關職務，目標發揮以下專業價值：</p>
+        <ul class="job-list">
+            <li><strong>數據自動化：</strong>結合工業管理精神，優化 ETL 流程與數據處理效能。</li>
+            <li><strong>決策支持：</strong>透過 Power BI 與 DAX 建立具備商業影響力的預測模型。</li>
+            <li><strong>數位轉型：</strong>協助企業將原始數據資產化，落實數據導向的決策文化。</li>
         </ul>
-        <p><strong>地點偏好：</strong>遠端工作或 [你的城市] | <strong>產業意願：</strong>電商、金融科技、製造業數位轉型</p>
+        <p><strong>產業興趣：</strong>高科技製造、電子商務、金融數據分析 | <strong>地點：</strong>可配合遠端或實體辦公</p>
     </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 數據專家個人履歷. 歡迎透過 Email 或 LinkedIn 與我聯絡。</p>
+    <p>&copy; 2026 數據分析與工程專業個人履歷. </p>
 </footer>
 
 </body>
