@@ -3,227 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人專業履歷 | 數據分析與資料工程專家</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-light: #f4f7f6;
-            --text-dark: #333;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #4ca1af);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            background: var(--white);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        h1, h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-
-        h1 { border-bottom: none; margin-bottom: 0.5rem; }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* 技能區塊 */
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-item {
-            background: #fff;
-            border-top: 4px solid var(--accent-color);
-            padding: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-radius: 4px;
-        }
-
-        .skill-item h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-        }
-
-        /* 學歷時間軸樣式 */
-        .edu-list {
-            list-style: none;
-            padding: 0;
-            position: relative;
-        }
-
-        .edu-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--accent-color);
-            position: relative;
-        }
-
-        .edu-item::before {
-            content: "";
-            position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            background: var(--accent-color);
-            border-radius: 50%;
-        }
-
-        .edu-name {
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: block;
-        }
-
-        .edu-major {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* 求職需求 */
-        .job-needs {
-            background: #fdfdfd;
-            border: 1px solid #e0e0e0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        ul.job-list {
-            padding-left: 1.2rem;
-        }
-
-        ul.job-list li {
-            margin-bottom: 0.5rem;
-        }
-    </style>
+    <title>Jing Yao | 個人履歷</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>數據分析與資料工程專家</h1>
-    <p class="subtitle">整合工業管理邏輯與 SQL / Python 數據技術</p>
-</header>
-
-<div class="container">
-    
-    <section id="about">
-        <h2>關於我 (About Me)</h2>
-        <p>
-            您好！我是一名具備<strong>工業管理</strong>背景的數據專家，擅長將流程優化邏輯應用於<strong>數據工程與商業智慧（BI）</strong>領域。
-            我的核心價值在於建構自動化的數據流，並利用進階 DAX 運算與視覺化工具，協助企業從數據中找出營運效率的突破點。
-        </p>
-    </section>
-    <section id="portfolio-link" style="text-align: center; background: #eef2f3;">
-        <h2>專案成果展示</h2>
-        <p>想了解我如何運用 SQL、Python 與 Power BI 解決實際問題嗎？</p>
-        <a href="projects.html" style="
-        display: inline-block;
-        padding: 12px 30px;
-        background-color: var(--accent-color);
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
-        font-weight: bold;
-        transition: 0.3s;
-        ">查看專題製作內容 &rarr;</a>
-    </section>
-    <section id="skills">
-        <h2>核心技術能力</h2>
-        <div class="skill-grid">
-            <div class="skill-item">
-                <h3>SQL Server 技術</h3>
-                <p>精通 T-SQL 編寫、資料庫架構設計及效能優化，處理大規模數據集架構。</p>
-            </div>
-            <div class="skill-item">
-                <h3>Power BI 報表製作</h3>
-                <p>整合多方資料來源，建立動態且具備商業洞察力的互動式儀表板。</p>
-            </div>
-            <div class="skill-item">
-                <h3>Power BI DAX 分析</h3>
-                <p>擅長進階 DAX 函數，進行複雜的時間序列比較與關鍵績效指標（KPI）定義。</p>
-            </div>
-            <div class="skill-item">
-                <h3>Python 數據開發</h3>
-                <p>利用 Python 進行資料清洗、自動化爬蟲及數據處理流程優化。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>學歷背景 (Education)</h2>
-        <div class="edu-list">
-            <div class="edu-item">
-                <span class="edu-name">國立虎尾科技大學</span>
-                <span class="edu-major">工業管理系</span>
-            </div>
-            <div class="edu-item">
-                <span class="edu-name">國立台中高級工業職業學校</span>
-                <span class="edu-major">圖文傳播科</span>
-            </div>
-            <div class="edu-item">
-                <span class="edu-name">台中市立五權國中</span>
-            </div>
-            <div class="edu-item">
-                <span class="edu-name">台中市立健行國小</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="aspiration" class="job-needs">
-        <h2>求職需求與期待</h2>
-        <p>目前尋求<strong>資深數據分析師</strong>、<strong>資料工程師</strong>或 <strong>BI 顧問</strong> 等相關職務，目標發揮以下專業價值：</p>
-        <ul class="job-list">
-            <li><strong>數據自動化：</strong>結合工業管理精神，優化 ETL 流程與數據處理效能。</li>
-            <li><strong>決策支持：</strong>透過 Power BI 與 DAX 建立具備商業影響力的預測模型。</li>
-            <li><strong>數位轉型：</strong>協助企業將原始數據資產化，落實數據導向的決策文化。</li>
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="skill.html">專業技能</a></li>
+            <li><a href="project.html">專案作品</a></li>
         </ul>
-        <p><strong>產業興趣：</strong>高科技製造、電子商務、金融數據分析 | <strong>地點：</strong>可配合遠端或實體辦公</p>
+    </nav>
+
+    <header>
+        <h1>你好，我是 Jing Yao</h1>
+        <p>數據分析與資料工程專家</p>
+    </header>
+
+    <section id="about">
+        <h2>關於我</h2>
+        <p>專注於雲端資料架構優化與自動化流程建立...</p>
     </section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 數據分析與工程專業個人履歷. </p>
-</footer>
-
 </body>
 </html>
