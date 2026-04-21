@@ -10,41 +10,54 @@
 body {
     margin: 0;
     font-family: "Microsoft JhengHei", Arial, sans-serif;
-    background: #04f8d8;
+    /* 修改為漸層背景：深色科技感導向 */
+    background: linear-gradient(135deg, #1f2937 0%, #04f8d8 100%);
+    background-attachment: fixed; /* 讓背景固定，捲動時不重複 */
+    min-height: 100vh;
     color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
 }
 
-/* --- 導覽列 --- */
+/* --- 左側側邊欄 (固定) --- */
 .sidebar {
     width: 100%;
-    background: #8a8a8a;
-    padding: 15px;
+    background: rgba(44, 62, 80, 0.9); /* 加入半透明感 */
+    backdrop-filter: blur(10px);    /* 磨砂玻璃效果 */
+    padding: 20px;
     box-sizing: border-box;
-    border-bottom: 1px solid #1f2937;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
 }
 
 .nav-links {
     display: flex; 
     justify-content: center;
     flex-wrap: wrap; 
-    gap: 8px;
+    gap: 12px;
 }
 
 .sidebar a {
     color: white;
-    padding: 8px 12px;
+    padding: 10px 18px;
     text-decoration: none;
-    border-radius: 6px;
-    background: #02695c;
-    font-size: 14px;
+    border-radius: 8px;
+    background: rgba(2, 105, 92, 0.8);
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #04f8d8;
+    color: #1f2937;
+    transform: translateY(-2px);
 }
 
 /* --- 主內容 --- */
 .content {
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .header-flex {
@@ -56,53 +69,59 @@ body {
 
 .profile {
     width: 150px;
+    height: 150px;
+    object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #58a6ff;
+    border: 4px solid #ffffff;
     margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* --- 元件樣式 --- */
-hr { border: 0; border-top: 1px solid #333; margin: 30px 0; }
+hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 40px 0; }
+
 .card { 
-    background: #161b22; 
-    padding: 20px; 
-    border-radius: 10px; 
-    margin-top: 15px; 
-    border: 1px solid #30363d; 
-    line-height: 1.7;
+    background: rgba(22, 27, 34, 0.85); /* 提升卡片質感 */
+    padding: 25px; 
+    border-radius: 12px; 
+    margin-top: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    line-height: 1.8;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
+
 .tag { 
     display: inline-block; 
     background: #238636; 
     color: white;
-    padding: 4px 10px; 
-    margin: 2px; 
-    border-radius: 4px; 
-    font-size: 12px; 
+    padding: 5px 12px; 
+    margin: 4px; 
+    border-radius: 20px; 
+    font-size: 13px; 
 }
 
 /* 連結按鈕樣式 */
 .btn-link {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 10px 20px;
     margin-top: 15px;
     margin-right: 10px;
-    background-color: #1f2937;
-    color: #58a6ff;
-    border: 1px solid #30363d;
+    background-color: #58a6ff;
+    color: #ffffff;
     border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
+    font-weight: bold;
     transition: 0.3s;
 }
 .btn-link:hover {
-    background-color: #30363d;
-    border-color: #8b949e;
+    background-color: #1f2937;
+    transform: scale(1.05);
 }
 
-.highlight { color: #58a6ff; font-weight: bold; }
-.exp-title { color: #58a6ff; font-size: 1.2rem; margin-bottom: 5px; display: block; }
-.exp-meta { color: #8b949e; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+.highlight { color: #04f8d8; font-weight: bold; }
+.exp-title { color: #58a6ff; font-size: 1.3rem; margin-bottom: 5px; display: block; font-weight: bold; }
+.exp-meta { color: #8b949e; font-size: 0.95rem; margin-bottom: 10px; display: block; }
 
 /* 專題圖片樣式 */
 .project-image-container {
@@ -116,18 +135,54 @@ hr { border: 0; border-top: 1px solid #333; margin: 30px 0; }
     height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    border: 2px solid #30363d;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- 桌機版佈局 --- */
-@media (min-width: 768px) {
+/* --- 桌機版佈局：切換為左側選單 --- */
+@media (min-width: 992px) {
     body { flex-direction: row; }
-    .sidebar { width: 220px; height: 100vh; position: fixed; padding: 40px 20px; border-right: 1px solid #1f2937; }
-    .nav-links { display: block; }
-    .sidebar a { display: block; margin: 10px 0; background: transparent; }
-    .content { margin-left: 240px; padding: 40px; max-width: 1000px; }
+    
+    .sidebar { 
+        width: 260px; 
+        height: 100vh; 
+        position: fixed; 
+        left: 0;
+        top: 0;
+        padding: 60px 25px; 
+        border-right: 1px solid rgba(255, 255, 255, 0.1); 
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-links { 
+        display: flex;
+        flex-direction: column; 
+        width: 100%;
+        text-align: left;
+    }
+    
+    .sidebar a { 
+        display: block; 
+        margin: 8px 0; 
+        background: transparent; 
+        font-size: 1.1rem;
+        border: 1px solid transparent;
+    }
+
+    .sidebar a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid #04f8d8;
+    }
+    
+    .content { 
+        margin-left: 260px; /* 避開固定在左邊的選單 */
+        padding: 60px 10%; 
+    }
+    
     .header-flex { flex-direction: row; text-align: left; }
-    .profile { width: 180px; margin-right: 30px; margin-bottom: 0; }
+    .profile { width: 200px; height: 200px; margin-right: 40px; margin-bottom: 0; }
 }
 </style>
 </head>
@@ -135,101 +190,34 @@ hr { border: 0; border-top: 1px solid #333; margin: 30px 0; }
 <body>
 
 <div class="sidebar">
+    <div style="margin-bottom: 40px; text-align: center; width: 100%;">
+        <h2 style="color: #04f8d8; margin: 0;">Rick Resume</h2>
+        <p style="font-size: 0.8rem; color: #8b949e;">Data & Analytics</p>
+    </div>
     <div class="nav-links">
-        <a href="index.html" style="background: #1f2937;">個人介紹</a>
-        <a href="education.html">學歷</a>
-        <a href="experience.html">經歷</a>
-        <a href="skills.html">技能</a>
-        <a href="portfolio.html">作品集</a>
+        <a href="index.html" style="background: rgba(4, 248, 216, 0.2); border-left: 4px solid #04f8d8;">個人介紹</a>
+        <a href="education.html">學歷背景</a>
+        <a href="experience.html">工作經歷</a>
+        <a href="skills.html">專業技能</a>
+        <a href="portfolio.html">作品集展示</a>
     </div>
 </div>
 
 <div class="content">
     <div class="header-flex">
-        <img src="assets/p1.jpg" class="profile" alt="勝翔">
+        <img src="assets/p1.jpg" class="profile" alt="Rick">
         <div>
-            <h1 style="margin:0;">李敬堯 Rick</h1>
-            <p style="font-size: 1.2rem; color: #8b949e;">資料工程師 | 資料分析師 | 前商場客服課長</p>
-            <p>📍 現居台中市 ｜ 🌐 <a href="https://Rick70266.github.io/portfolio.html" target="_blank">技術技能樹</a></p>
+            <h1 style="margin:0; font-size: 2.5rem;">李敬堯 Rick</h1>
+            <p style="font-size: 1.3rem; color: #04f8d8; margin: 10px 0;">資料工程師 | 資料分析師</p>
+            <p>📍 現居台中市 ｜ 🌐 <a href="https://Rick70266.github.io/portfolio.html" target="_blank" style="color:#58a6ff; text-decoration:none;">技術專案連結</a></p>
         </div>
     </div>
 
     <hr>
 
-    <div class="card" style="border-left: 5px solid #238636;">
+    <div class="card" style="border-left: 5px solid #04f8d8;">
         <h3 style="margin-top:0;">🚀 目前動態</h3>
         <p>現於職訓局進修 <span class="highlight">【Python人工智慧與數據分析班】</span>，預計 2026/04/23 結業。
-            <br>此課程學習之技術包含：
-            <br>● 資料工程：SQL Server ETL、SSAS/SSRS、Azure VM & SQL Server 架設
-            <br>● 程式開發：Python 爬蟲、Github 版控、Anaconda 環境佈置
-            <br>● 數據分析：Power BI、DAX、報表發佈
-            <br>● 雲端應用：GCP VM 架設、防火牆設定、Streamlit 網頁佈署
-        </p>
-    </div>
-
-    <hr>
-
-    <h2>近期開發專案 (做中學成果)</h2>
-    
-    <div class="card">
-        <h3>大數據銷售分析 (Power BI)</h3>
-        <p><b>結訓專題製作：</b>
-            <br>● E (Extract)：透過 Kaggle 尋找合適數據。
-            <br>● T (Transform)：透過 Python 進行初步清洗，匯入 SQL 進行深層清洗與轉型。
-            <br>● L (Load)：將資料匯入 Power BI，建立 Star Schema 架構。
-        </p>
-        <div>
-            <span class="tag">Power BI</span>
-            <span class="tag">資料建模</span>
-            <span class="tag">DAX</span>
-        </div>
-        <a href="https://Rick70266.github.io/education.html" target="_blank" class="btn-link">觀看作品集</a>
-    </div>
-
-    <div class="card">
-        <h3>2. 美國總統動態即時監控系統 (BI + AI 整合)</h3>
-        <p>為了掌握即時趨勢消息，我建立了一個全自動化的數據處理流程：</p>
-        <ul>
-            <li>使用 <span class="highlight">Python</span> 自動爬取新聞並寫入 <span class="highlight">Azure SQL Database</span>。</li>
-            <li>進行 <span class="highlight">NLP 情感分析</span> 並透過 <span class="highlight">LINE Notify</span> 即時推播。</li>
-        </ul>
-        
-        <div class="project-image-container">
-            <p style="color: #8b949e; font-size: 0.9rem; margin-bottom: 5px;">【實測成果】LINE 群組接收與智慧手錶同步推播</p>
-            <img src="assets/line1.jpg" class="project-image" alt="成果展示">
-        </div>
-
-
-    </div>
-
-    <hr>
-
-    <h2>關於我</h2>
-    <p>您好，我是勝翔。定居台中，育有一子一女。電機工程背景出發，擁有單晶片8051、C語言、PLC基礎。熱衷於將複雜問題化繁為簡，希望從喜歡程式轉變為主動思考產品價值的核心開發者。</p>
-
-    <hr>
-
-    <h2>工作經歷</h2>
-    <div class="card">
-        <span class="exp-title">凌發科技 ｜ Unity 主任 / 組長</span>
-        <span class="exp-meta">2020/05 ~ 2025/07</span>
-        <p>主導 Unity3D 博奕遊戲包網平台開發，導入 Addressable Bundle 技術架構，負責元宇宙與直播系統開發。</p>
-    </div>
-
-    <div class="card">
-        <span class="exp-title">網銀國際 ｜ 資深組長 / 軟體工程師</span>
-        <span class="exp-meta">2012/04 ~ 2020/04</span>
-        <p>擔任《世界大亨》Client 端主程，負責雙平台發佈、框架維護與效能優化，曾獲技術研發久任獎金。</p>
-    </div>
-
-    <hr>
-
-    <h2>職涯理念</h2>
-    <blockquote style="font-style: italic; color: #8b949e; border-left: 4px solid #30363d; padding-left: 20px;">
-        「在每個階段都是特別的經歷，從上手熟悉到化繁為簡隨時充滿挑戰。我期待在數據分析領域創造下一個價值。」
-    </blockquote>
-
-</div>
-
-</body>
-</html>
+            <br>● <b>資料工程：</b>SQL Server ETL、SSAS/SSRS、Azure 雲端架構
+            <br>● <b>數據分析：</b>Power BI 視覺化、DAX 建模、商業指標分析
+            <br>● <b>程式開發：</b>Python 爬蟲、NLP 情感分析、Streamlit 應用
