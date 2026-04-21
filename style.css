@@ -1,126 +1,95 @@
-/* 基本重置 */
+/* 基本設置 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Microsoft JhengHei", sans-serif;
 }
 
 body {
     background-color: #f4f7f6;
-    color: #333;
 }
 
 .container {
-    display: flex;
-    min-height: 100vh;
+    display: flex; /* 使用 flex 佈局讓左右並排 */
 }
 
-/* 側邊欄樣式 */
+/* --- 左側側邊欄 --- */
 .sidebar {
-    width: 280px;
+    width: 250px;           /* 設定左側固定寬度 */
     background-color: #2c3e50;
     color: white;
+    height: 100vh;          /* 高度撐滿整個螢幕 */
+    position: fixed;        /* 固定在左側，不隨捲軸滾動 */
+    left: 0;
+    top: 0;
     padding: 40px 20px;
-    position: fixed;
-    height: 100%;
 }
 
 .profile-info {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-.avatar {
-    font-size: 60px;
-    background: #34495e;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    border-radius: 50%;
-    margin: 0 auto 15px;
+.profile-info h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
 }
 
+/* 選單清單垂直排列 */
 .menu ul {
     list-style: none;
+    display: flex;
+    flex-direction: column; /* 強制垂直排列 */
 }
 
 .menu ul li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .menu ul li a {
-    color: #bdc3c7;
+    color: #ecf0f1;
     text-decoration: none;
     font-size: 1.1rem;
     display: block;
-    padding: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
     transition: 0.3s;
 }
 
+/* 滑鼠移上去的顏色 */
 .menu ul li a:hover {
-    color: white;
-    background: #34495e;
-    border-radius: 5px;
+    background-color: #34495e;
+    color: #3498db;
 }
 
-/* 主要內容樣式 */
+.menu ul li a i {
+    margin-right: 10px;    /* 圖示與文字的間距 */
+    width: 20px;
+    text-align: center;
+}
+
+/* --- 右側內容區 --- */
 .content {
-    margin-left: 280px; /* 與側邊欄寬度一致 */
-    padding: 60px;
-    width: 100%;
+    margin-left: 250px;     /* 重要：預留左側側邊欄的寬度 */
+    width: calc(100% - 250px);
+    padding: 50px;
 }
 
 .section {
-    margin-bottom: 80px;
-    scroll-margin-top: 60px; /* 點擊選單跳轉時的間隔 */
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-hr {
-    border: none;
-    border-top: 3px solid #3498db;
-    width: 50px;
-    margin-bottom: 30px;
-}
-
-.item {
-    margin-bottom: 20px;
-}
-
-/* 技能標籤樣式 */
-.skills-grid span {
-    display: inline-block;
-    background: #ecf0f1;
-    padding: 8px 15px;
-    margin: 5px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    border: 1px solid #ddd;
-}
-
-/* 作品集卡片樣式 */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* 響應式：手機版將側邊欄隱藏或轉為頂部選單 */
+/* 針對小螢幕（手機）的適應 */
 @media (max-width: 768px) {
-    .container { flex-direction: column; }
-    .sidebar { position: relative; width: 100%; height: auto; }
-    .content { margin-left: 0; padding: 30px; }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
 }
