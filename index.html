@@ -7,6 +7,36 @@
 
 <style>
 /* --- 基礎設定 --- */
+/* 子選單基礎設定 */
+.sub-nav {
+    max-height: 0;           /* 預設高度為 0 (隱藏) */
+    overflow: hidden;        /* 超出部分隱藏 */
+    transition: max-height 0.5s ease-out; /* 展開動畫 */
+    background: rgba(0, 0, 0, 0.2); /* 稍微深一點的背景色做區隔 */
+    border-radius: 8px;
+    margin-left: 10px;       /* 往右縮進，顯現階層感 */
+}
+
+/* 當滑鼠移到作品集群組時，展開子選單 */
+.portfolio-group:hover .sub-nav {
+    max-height: 300px;       /* 給予足夠大的高度讓它展開 */
+}
+
+/* 子選單內的連結樣式 */
+.sub-nav a {
+    font-size: 0.9rem !important; /* 字體比主選單小一點 */
+    padding: 8px 15px !important;
+    background: transparent !important; /* 移除原本的背景 */
+    border: none !important;
+    border-left: 2px solid rgba(4, 248, 216, 0.3); /* 左側細線 */
+    margin: 2px 0 !important;
+}
+
+.sub-nav a:hover {
+    color: #04f8d8 !important;
+    border-left: 2px solid #04f8d8 !important;
+}
+
 body {
     margin: 0;
     font-family: "Microsoft JhengHei", Arial, sans-serif;
@@ -153,6 +183,11 @@ body {
         <a href="experience.html">工作經歷</a>
         <a href="skills.html">專業技能</a>
         <a href="portfolio.html">作品集展示</a>
+        <div class="sub-nav">
+                <a href="project-1.html">● 大數據銷售分析</a>
+                <a href="project-2.html">● 即時新聞監控系統</a>
+                <a href="project-3.html">● 雲端自動化流程</a>
+            </div>
     </div>
 </div>
 
@@ -179,7 +214,7 @@ body {
     <hr>
 
     <div class="card" style="border-left: 5px solid #04f8d8;">
-        <h3 style="margin-top:0;">目前動態</h3>
+        <h3 style="color: #04f8d8;">目前動態</h3>
         <p>現於職訓局進修 <span class="highlight">【Python人工智慧與數據分析班】</span>，預計 2026/04/23 結業。
             <br>
             <br>此課程學習之技術包含：
